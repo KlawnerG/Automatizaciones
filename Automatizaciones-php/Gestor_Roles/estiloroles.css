@@ -1,0 +1,175 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #011638;
+    background-color: rgb(90, 89, 89);
+    
+}
+
+/* Estilos del formulario de registro */
+.users-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.users-form h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.users-form input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.users-form input[type="submit"],
+.users-form input[type="reset"] {
+    background-color: #000000;
+    color: aqua;
+    cursor: pointer;
+    font-weight: bold;
+    width: 40%;
+    padding: 15px;
+    border-radius: 20px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.users-form input[type="submit"]:hover,
+.users-form input[type="reset"]:hover {
+    background-color: white;
+    color: #000000;
+}
+
+/* Estilos de la tabla de roles */
+.users-table {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin: 50px auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.users-table h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.users-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table table th,
+.users-table table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.users-table table th {
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+.users-table--edit,
+.users-table--delete {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: aqua;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.users-table--edit:hover,
+.users-table--delete:hover {
+    background-color: #05d6da;
+    color: white;
+}
+
+/* Estilos generales */
+
+
+/* Estilos del formulario de Roles */
+.Roles-form {
+    margin: 20px auto; /* Centrar en el eje horizontal y aplicar un margen en la parte superior e inferior */
+    background-color: rgb(238, 238, 238); /* Color de fondo del formulario (cambiado a blanco) */
+    padding: 20px; /* Espaciado interno para un mejor aspecto visual */
+    border-radius: 10px;
+    width: 90%;
+}
+
+.Roles-form label {
+    color: #000000;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.Roles-form input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.Roles-form input[type="submit"],
+.Roles-form input[type="reset"] {
+    background-color: rgb(0, 0, 0);
+    color: rgb(81, 229, 255);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.Roles-form input[type="submit"]:hover,
+.Roles-form input[type="reset"]:hover {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+/* Estilos para el menú */
+.menu {
+    background-color: #333; /* Color de fondo del menú */
+    padding: 10px 0; /* Espaciado interno arriba y abajo */
+}
+
+.menu nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+}
+
+.menu nav ul li {
+    margin: 0 10px; /* Espaciado entre elementos del menú */
+}
+
+.menu nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Color del texto en estado normal */
+    padding: 10px 15px; /* Espaciado interno en cada enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.menu nav ul li a:hover {
+    background-color: #555; /* Cambio de color de fondo al pasar el ratón */
+}

@@ -1,0 +1,138 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #011638;
+    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/212b34104893379.5f6cc87656bf0.gif');
+}
+
+/* Estilos del formulario de registro */
+.calificaciones-form {
+    margin: 120px auto; /* Centrar en el eje horizontal y aplicar un margen en la parte superior e inferior */
+    background-color: rgb(238, 238, 238); /* Color de fondo de la tabla (cambiado a blanco) */
+    padding: 50px; /* Espaciado interno para un mejor aspecto visual */
+    border-radius: 10px;
+    width: 90%;
+}
+
+.calificaciones-form h2 {
+    color: #000000;
+}
+
+.calificaciones-form input[type="text"],
+.calificaciones-form input[type="date"],
+.calificaciones-form input[type="submit"],
+.calificaciones-form input[type="reset"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.calificaciones-form input[type="submit"],
+.calificaciones-form input[type="reset"] {
+    background-color: aqua;
+    color: rgb(0, 0, 0); /* Color del texto modificado */
+    cursor: pointer;
+}
+
+.calificaciones-form input[type="submit"]:hover,
+.calificaciones-form input[type="reset"]:hover {
+    background-color: #29fff8;
+    color: rgb(0, 0, 0); /* Color del texto modificado */
+}
+
+/* Estilos de la tabla de calificaciones */
+.calificaciones-table {
+    margin: 10px auto; /* Centrar en el eje horizontal y aplicar un margen en la parte superior e inferior */
+    color: rgb(0, 0, 0); /* Color del texto de la tabla */
+    background-color: rgb(238, 238, 238); /* Color de fondo de la tabla (cambiado a blanco) */
+    padding: 20px; /* Espaciado interno para un mejor aspecto visual */
+    border-radius: 10px;
+    width: 90%;
+}
+
+.calificaciones-table h2 {
+    color: #000000;
+}
+
+.calificaciones-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calificaciones-table table th,
+.calificaciones-table table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.calificaciones-table table th {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+
+.calificaciones-table table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.calificaciones-table table tr:hover {
+    background-color: #ddd;
+}
+
+.calificaciones-table a {
+    text-decoration: none;
+    color: #9bbedd;
+}
+
+.calificaciones-table a:hover {
+    text-decoration: underline;
+    color: #7da6c2;
+}
+
+.calificaciones-table .users-table--edit,
+.calificaciones-table .users-table--delete {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: aqua; /* Color de fondo modificado */
+    color: black; /* Color del texto modificado */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.calificaciones-table .users-table--edit:hover,
+.calificaciones-table .users-table--delete:hover {
+    background-color: #7da6c2;
+    color: white; /* Color del texto modificado */
+}
+/* Estilos para el menú */
+.menu {
+    background-color: #333; /* Color de fondo del menú */
+    padding: 10px 0; /* Espaciado interno arriba y abajo */
+}
+
+.menu nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+}
+
+.menu nav ul li {
+    margin: 0 10px; /* Espaciado entre elementos del menú */
+}
+
+.menu nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Color del texto en estado normal */
+    padding: 10px 15px; /* Espaciado interno en cada enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.menu nav ul li a:hover {
+    background-color: #555; /* Cambio de color de fondo al pasar el ratón */
+}

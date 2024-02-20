@@ -1,0 +1,182 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #011638;
+    background-color: rgb(90, 89, 89); /* Color de fondo del body modificado */
+    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/212b34104893379.5f6cc87656bf0.gif');
+}
+
+/* Estilos del formulario de registro */
+.users-form {
+    background-color: rgba(255, 255, 255, 0.8); /* Color de fondo modificado */
+    padding: 20px;
+    margin: 90px auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.users-form h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.users-form input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.users-form input[type="submit"],
+.users-form input[type="reset"] {
+    background-color: #000000; /* Color de fondo modificado */
+    color: aqua;
+    cursor: pointer;
+    font-weight: bold;
+    width: 40%;
+    padding: 15px;
+    border-radius: 20px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.users-form input[type="submit"]:hover,
+.users-form input[type="reset"]:hover {
+    background-color: white;
+    color: #9bbedd; /* Color del texto modificado */
+}
+
+/* Estilos de la tabla de calificaciones */
+.users-table {
+    background-color: rgba(255, 255, 255, 0.8); /* Color de fondo modificado */
+    padding: 20px;
+    margin: 50px auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.users-table h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.users-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table table th,
+.users-table table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.users-table table th {
+    background-color: #000000; /* Color de fondo modificado */
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+.users-table--edit,
+.users-table--delete {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: aqua;
+    color: black; /* Color del texto modificado */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.users-table--edit:hover,
+.users-table--delete:hover {
+    background-color: #7da6c2; /* Color de fondo modificado */
+    color: white; /* Color del texto modificado */
+}
+
+
+
+/*Css para edicion 
+
+
+/* Estilos generales */
+
+
+/* Estilos del formulario de peticiones */
+.peticiones-form {
+    background-color: #b7bec4;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 250px auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.peticiones-form label {
+    color: rgb(0, 0, 0);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.peticiones-form input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.peticiones-form input[type="submit"],
+.peticiones-form input[type="reset"] {
+    background-color: black;
+    color: aqua;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.peticiones-form input[type="submit"]:hover,
+.peticiones-form input[type="reset"]:hover {
+    background-color: white;
+    color: aqua;
+}
+/* Estilos para el menú */
+.menu {
+    background-color: #333; /* Color de fondo del menú */
+    padding: 10px 0; /* Espaciado interno arriba y abajo */
+}
+
+.menu nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+}
+
+.menu nav ul li {
+    margin: 0 10px; /* Espaciado entre elementos del menú */
+}
+
+.menu nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Color del texto en estado normal */
+    padding: 10px 15px; /* Espaciado interno en cada enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.menu nav ul li a:hover {
+    background-color: #555; /* Cambio de color de fondo al pasar el ratón */
+}   
