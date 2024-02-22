@@ -6,20 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresa de Bots Avanzados</title>
     <link rel="stylesheet" href="estiloprincipales.css">
-    <style>
-        .logo {
-            position: absolute;
-            text-align: left;
-            top: 50px;
-            padding: 0px 560px;  
-        }
-
-        .imagen {
-            height: 300px auto;
-            
-
-        }
-    </style>
+    
     
 </head>
 
@@ -34,7 +21,7 @@
     <nav>
         <ul>
             <li><a href="bot.html">Conoce Nuestros Bots</a></li>
-            <li><a href="peticiones.php">Realiza Peticiones</a></li>
+            <li><a href="peticiones.php" id="peticiones-link">Realiza Peticiones</a></li>
             <li><a href="calificacion.php">Haz una Calificación</a></li>
         </ul>
     </nav>
@@ -64,8 +51,40 @@
             <a href="calificacion.php">¿Qué tal compartirnos tu calificación? ¡Valoramos tu opinión! 😊</a>
         </div>
     </footer>
-    <a href="login.html" class="login-link">Iniciar Sesión</a>
-    <a href="registro.php" class="registro-link">Registrate</a>
+    <a href="login.html" class="login-link">Login Empleados</a>
+    <a href="registro.php" class="registro-link">Registrate</a>    
+    
+    <div id="chat-containesr">
+        <div id="chat-log">Chatbot</div>
+        <input type="text" id="user-input" placeholder="Escribe tu mensaje..." onkeydown="sendMessage(event)">
+    </div>
+
+    <script>
+        function sendMessage(event) {
+            if (event.key === "Enter") {
+                var userInput = document.getElementById("user-input").value;
+                document.getElementById("chat-log").innerHTML += "<div class='user-message'><strong>Tú:</strong> " + userInput + "</div>";
+
+                processUserMessage(userInput);
+
+                document.getElementById("user-input").value = "";
+            }
+        }
+
+        function processUserMessage(message) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var botReply = xhr.responseText;
+                    document.getElementById("chat-log").innerHTML += "<div class='bot-message'><strong>Bot:</strong> " + botReply + "</div>";
+                }
+            };
+
+            xhr.open("POST", "chat.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("userMessage=" + message);
+        }
+    </script>
 </body>
 
 </html>

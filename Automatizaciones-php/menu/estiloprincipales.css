@@ -1,172 +1,250 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #f8f9fa, #ced4da); /* Gradient background */
-    color: #011638;
-    font-size: 20px;
+:root {
+  --main-bg-color: #f8f9fa;
+  --nav-bg-color: #6a8eae;
+  --nav-text-color: aqua;
+  --nav-hover-color: white;
+  --header-bg-color: black;
+  --footer-bg-color: black;
+  --footer-text-color: white;
+  --cta-bg-color: black;
+  --cta-text-color: aqua;
+  --cta-hover-color: white;
 }
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, var(--main-bg-color), #ced4da);
+  color: #011638;
+  font-size: 20px;
+}
+
 nav {
-    background-color: #6A8EAE; /* Dark background */
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
-    font-size: 20px;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-  }
-  
-  nav li {
-    display: inline;
-    margin-right: 20px;
-    font-size: 20px;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: aqua;
-    font-weight: bold;
-    transition: color 0.3s;
-    font-size: 20px;
-  }
-  
-  nav a:hover {
-    color: white;
-    font-size: 20px;
-  }
+  background-color: var(--nav-bg-color);
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+}
 
-  main {
-    padding: 101px 50px;
-    text-align: center;
-    font-size: 20px;
-    
-  }
-  
-  main {
-    
-    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/212b34104893379.5f6cc87656bf0.gif');
-    font-size: 20px;
-    color: #CDCDCD;
-  }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
 
-  
+nav li {
+  display: inline;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--nav-text-color);
+  font-weight: bold;
+  transition: color 0.3s;
+  font-size: 20px;
+}
+
+nav a:hover {
+  color: var(--nav-hover-color);
+}
+
+main {
+  padding: 101px 50px;
+  text-align: center;
+  font-size: 20px;
+  background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/212b34104893379.5f6cc87656bf0.gif');
+  color: #CDCDCD;
+}
+
 ul {
-    list-style: none;
-    margin-top: 15px;
-    font-size: 20px;
-  }
-  
-  
+  list-style: none;
+  margin-top: 15px;
+  font-size: 20px;
+}
 
 header {
-    background-color: black; /* Blue header */
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 20px;
+  background-color: var(--header-bg-color);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.logo {
+  position: absolute;
+  text-align: left;
+  top: 50px;
+  padding: 0px 560px;
+}
+
+.imagen {
+  height: 300px auto;
+}
+
+#chat-container {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #FFF;
+  border-left: 1px solid #CCC;
+  overflow-y: auto;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+#chat-log {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#user-input {
+  width: calc(100% - 20px);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+}
+
+.user-message,
+.bot-message {
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.6;
+  position: relative;
+}
+
+.bot-message {
+  background-color: #4CAF50;
+  color: #FFF;
+}
+
+#typing-indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 12px;
+  color: #CCC;
+  display: none;
+}
+
+#auto-complete,
+#emojis {
+  position: absolute;
+  bottom: 50px;
+  width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  display: none;
+}
+
+#chat-container:hover #auto-complete,
+#chat-container:hover #emojis {
+  display: block;
 }
 
 .logo img {
-    max-width: 100px;
-    font-size: 20px;
+  max-width: 100px;
+  font-size: 20px;
 }
 
-
-
 section {
-    margin-bottom: 40px;
-    font-size: 20px;
+  margin-bottom: 40px;
+  font-size: 20px;
 }
 
 .cta {
-    background-color: black; 
-    color: aqua;
-    padding: 18px; 
-    border-radius: 8px; 
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s;
-    font-size: 20px; 
+  background-color: var(--cta-bg-color);
+  color: var(--cta-text-color);
+  padding: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+  font-size: 20px;
 }
 
 .cta:hover {
-    background-color: white;
-    font-size: 20px;
+  background-color: var(--cta-hover-color);
 }
 
 footer {
-    background-color: black; 
-    color: white;
-    text-align: center;
-    padding: 35px;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-    top: 0px; 
-    border-top: 0px solid #DFF8EB; 
-    font-size: 20px;
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
+  text-align: center;
+  padding: 35px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 0px;
+  font-size: 20px;
 }
 
 .footer-links {
-    margin-top: 20px;
-    font-size: 20px;
+  margin-top: 20px;
+  font-size: 20px;
 }
 
 .footer-links a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 20px; /* Adjust font size for better readability */
-    transition: color 0.3s;
-    font-size: 20px;
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 20px;
 }
 
 .footer-links a:hover {
-    color: #007bff;
-    font-size: 20px;
+  color: #007bff;
 }
 
-
 .login-link {
-    position: absolute;
-    top: 50px;
-    right: 180px;
-    text-decoration: none;
-    color: aqua;
-    font-weight: bold;
-    border: 2px solid black; 
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 20px;
-  }
-  
-  .login-link:hover {
-    background-color: white;
-    color: aqua; 
-    font-size: 20px;
-  }
+  position: absolute;
+  top: 50px;
+  right: 180px;
+  text-decoration: none;
+  color: aqua;
+  font-weight: bold;
+  border: 2px solid black;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 20px;
+}
 
-  .registro-link {
-    position: absolute;
-    top: 100px;
-    right: 180px;
-    text-decoration: none;
-    color: aqua;
-    font-weight: bold;
-    border: 2px solid black; 
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 20px;
-  }
-  
-  .registro-link:hover {
-    background-color: white;
-    color: aqua; 
-    font-size: 20px;
-  }
+.login-link:hover {
+  background-color: white;
+  color: aqua;
+}
+
+.registro-link {
+  position: absolute;
+  top: 100px;
+  right: 180px;
+  text-decoration: none;
+  color: aqua;
+  font-weight: bold;
+  border: 2px solid black;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 20px;
+}
+
+.registro-link:hover {
+  background-color: white;
+  color: aqua;
+}
