@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>botdomicilio - Servicio de Domicilio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2em;
+            position: relative;
+            background-image: url('https://i.pinimg.com/564x/8f/19/c1/8f19c1cd8d9ae4fb5e0e2e63b9f96076.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 0.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px;
+            background-color: #f2e8d6;
+        }
+
+        .card {
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #4d3f2d;
+        }
+
+        .card p {
+            margin: 10px 0;
+            color: #7a6a59;
+        }
+
+        #chat-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            border: 2px solid #4d3f2d;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+            color: #2c292a;
+            overflow-y: auto;
+            max-height: 400px;
+            margin: 40px auto;
+        }
+
+        #chat-log {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .user-message,
+        .bot-message {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            font-size: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAndSlide 0.8s forwards, fadeInOpacity 0.3s forwards;
+            transition: background-color 0.3s;
+        }
+
+        .user-message {
+            background-color: #f2e8d6;
+            text-align: right;
+            border: 2px solid #4d3f2d;
+            color: #2c292a;
+        }
+
+        .bot-message {
+            background-color: #e0e0e0;
+            text-align: left;
+            border: 2px solid #4d3f2d;
+            color: #2c292a;
+        }
+
+        .bot-message.typing::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #4d3f2d;
+            border-radius: 50%;
+            margin-right: 5px;
+            animation: typingAnimation 0.8s infinite;
+        }
+
+        #user-input {
+            width: calc(100% - 22px);
+            padding: 15px;
+            box-sizing: border-box;
+            border: 2px solid #4d3f2d;
+            border-radius: 15px;
+            box-shadow: 0 0 5px 0 #4d3f2d;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #2c292a;
+            transition: border-color 0.3s;
+        }
+
+        #user-input:focus {
+            outline: none;
+            border-color: #7a6a59;
+        }
+
+        #user-input::placeholder {
+            color: #999;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInAndSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInOpacity {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes typingAnimation {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>botdomicilio</h1>
+        <p>Disfruta de la mejor comida desde la comodidad de tu hogar</p>
+    </header>
+
+    <section>
+        <div class="card">
+            <img src="https://www.burgertown.com.co/cdn/shop/files/BT0203.webp?v=1690252258" alt="Hamburguesa">
+            <div class="card-content">
+                <h2>Hamburguesa Sencilla</h2>
+                <p>Deliciosa hamburguesa con carne, lechuga, tomate y queso.</p>
+                <p>Precio: $5.990</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://img.freepik.com/foto-gratis/hot-dog-ternera-parrilla-snack-ketchup-ia-generativa_188544-7829.jpg" alt="Perro Caliente">
+            <div class="card-content">
+                <h2>Perro Caliente</h2>
+                <p>Irresistible perro caliente con salchicha, pan y aderezos.</p>
+                <p>Precio: $4.500</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn7.kiwilimon.com/articuloimagen/31798/450x450/31532.jpg.webp" alt="Pizza Hawaiana">
+            <div class="card-content">
+                <h2>Pizza Hawaiana</h2>
+                <p>Exquisita pizza con piña, jamón y salsa de tomate.</p>
+                <p>Precio: $8.990</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.pngkey.com/png/detail/351-3515334_comida-asiatica-png-lo-mein.png" alt="Lo Mein">
+            <div class="card-content">
+                <h2>Lo Mein</h2>
+                <p>Deliciosos fideos salteados con verduras y carne.</p>
+                <p>Precio: $7.500</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.pngkey.com/png/detail/296-2965836_nachos-png-image-free-download-imageu200bu200bnacho-cheese-png.png" alt="Nachos">
+            <div class="card-content">
+                <h2>Nachos</h2>
+                <p>Crujientes nachos con queso fundido y frijoles.</p>
+                <p>Precio: $6.200</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.pngkey.com/png/detail/242-2424578_roll-png.png" alt="Sushi Roll">
+            <div class="card-content">
+                <h2>Sushi Roll</h2>
+                <p>Delicioso rollo de sushi fresco con pescado y verduras.</p>
+                <p>Precio: $9.500</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.pngkey.com/png/detail/176-1766470_arepas-png.png" alt="Arepas">
+            <div class="card-content">
+                <h2>Arepas</h2>
+                <p>Tradicionales arepas venezolanas rellenas de carne o queso.</p>
+                <p>Precio: $5.200</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="chat-container">
+        <div id="chat-log">Chatbot</div>
+        <input type="text" name="Mensaje_usuario" id="user-input" placeholder="Escribe tu mensaje..." onkeydown="sendMessage(event)">
+    </div>
+
+    <script>
+        function sendMessage(event) {
+            if (event.key === "Enter") {
+                var userInput = document.getElementById("user-input").value;
+                document.getElementById("chat-log").innerHTML += "<div class='user-message'><strong>Tú:</strong> " + userInput + "</div>";
+
+                processUserMessage(userInput);
+
+                document.getElementById("user-input").value = "";
+            }
+        }
+
+        function processUserMessage(message) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var botReply = xhr.responseText;
+                    document.getElementById("chat-log").innerHTML += "<div class='bot-message'><strong>Bot:</strong> " + botReply + "</div>";
+                }
+            };
+
+            xhr.open("POST", "chat.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("Mensaje_usuario=" + message);
+        }
+    </script>
+</body>
+</html>

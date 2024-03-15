@@ -24,108 +24,67 @@ $queryUsuarios = mysqli_query($con, $sqlUsuarios);
     <title>Usuarios Crud</title>
 <style>
 body {
-background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-image: url('https://i.pinimg.com/originals/55/01/60/5501609ee45d514d1f2c4a63502045e2.gif');
 background-size: cover;
 background-repeat: no-repeat;
 font-family: 'Numans', sans-serif;
 margin: 0;
 }
 
-.container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.users-form, .users-table {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    color: white;
-    width: 45%; /* Adjust the width as needed */
-}
-
-.users-form {
-    height: 100vh;
-}
-
-.users-form h2,
-.users-table h2 {
-    text-align: center;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-input,
-select {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input[type="submit"],
-input[type="reset"] {
-    background-color: #ffd34f;
-    color: black;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-    background-color: white;
-}
-
-
-.users-table table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.users-table th,
-.users-table td {
-    border: 1px solid white;
-    padding: 10px;
-    text-align: center;
-}
-
-.users-table th {
-    background-color: #ffd34f;
-    color: black;
-}
-
-.users-table a {
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.users-table--edit {
-    background-color: #3498db;
-    color: white;
-}
-
-.users-table--edit:hover {
-    background-color: #2980b9;
-}
-
-.users-table--delete {
-    background-color: #e74c3c;
-    color: white;
-}
-
-.users-table--delete:hover {
-    background-color: #c0392b;
-}
+body {
+        font-family: 'Poppins', sans-serif;
+        background-image: url('https://i.pinimg.com/originals/55/01/60/5501609ee45d514d1f2c4a63502045e2.gif');
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"]
+     {
+        width: 100%;
+        background-color: #000000;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin:5px;
+    }
+    input[type="submit"]:hover {
+        background-color: #727272;
+    }
+    input[type="reset"] {
+        width: 100%;
+        background-color: #000000;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin:5px;
+    }
+    input[type="reset"]:hover {
+        background-color: #727272;
+    }
 
     </style>
 </head>

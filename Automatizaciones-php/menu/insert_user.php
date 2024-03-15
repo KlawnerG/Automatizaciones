@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($query) {
             // Éxito al insertar el usuario
-            echo '<script>alert("Ya puedes hacer tus peticiones o calificarnos, Bienvenido"); window.location.href = "menu.html";</script>';
+            echo '<script>alert("Ya puedes hacer tus peticiones o calificarnos, Bienvenido"); window.location.href = "index.html";</script>';
         } else {
             // Hubo un error al intentar insertar el usuario
             echo "Error al insertar el usuario: " . mysqli_error($con);

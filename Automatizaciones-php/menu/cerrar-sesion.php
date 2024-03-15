@@ -11,7 +11,7 @@ session_start();
 
 session_destroy();
 
-header("location: menu.html");
+header("location: index.html");
 ?>
 
 
