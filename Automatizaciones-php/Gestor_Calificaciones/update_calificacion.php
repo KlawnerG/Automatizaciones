@@ -53,7 +53,12 @@ if (!empty($IdCalificacion)) {
             <input type="text" name="Comentarios" placeholder="Comentarios" value="<?= isset($row['Comentarios']) ? $row['Comentarios'] : '' ?>"><br>
 
             <input type="submit" value="Actualizar">
-            <input type="reset" value="Cancelar">
+            <button type="reset" value="cancelar" onclick='redireccion()'>Eliminar</button> 
+
+            <script> function redireccion() {
+                window.location.href = "Calificacion.php";
+            }
+            </script>
         </form>
     </div>
 </body>

@@ -39,8 +39,8 @@ if (!empty($idbot)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Editar usuarios</title>
     <link rel="stylesheet" href="estilobots.css">
+    <title>Editar usuarios</title>
     
 
 </head>
@@ -77,6 +77,7 @@ if (!empty($idbot)) {
                 echo "<option value='" . $subcategoria['Nombre'] . "'>" . $subcategoria['Nombre'] . "</option>";
             }
             ?>
+        
         </select><br>
 
             <label for="CodigoFuente">codigo fuente:</label>
@@ -86,7 +87,13 @@ if (!empty($idbot)) {
             <input type="text" name="Contenido" placeholder="Contenido" value="<?= isset($row['Contenido']) ? $row['Contenido'] : '' ?>"><br>
 
             <input type="submit" value="Actualizar">
-            <input type="reset" value="Cancelar">
+            <button type="reset" value="cancelar" onclick='redireccion()'>Eliminar</button> 
+
+            <script> function redireccion() {
+                window.location.href = "bots.php";
+            }
+            </script>
+
         </form>
     </div>
 </body>

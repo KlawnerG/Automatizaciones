@@ -27,24 +27,31 @@ if (!isset($_SESSION["usuario"])) {
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="calificaciones.css">
+    <link rel="stylesheet" href="../Gestor_Usuarios/estilomenu.css">
 <head>
 
 </head>
 <div class="menu">
-    <nav>
+        <nav>
         <ul>
-            <li><a href="../Gestor_usuarios/usuario.php">Gestor de Usuarios</a></li>
-            <li><a href="../Gestor_bots/bots.php">Gestor de Bots</a></li>
-            <li><a href="../Gestor_peticiones/peticiones.php">Gestor de Peticiones</a></li>
-            <li><a href="../Gestor_calificaciones/calificacion.php">Gestor de Calificaciones</a></li>
-            <li><a href="../Gestor_roles/roles.php">Gestor de Roles</a></li>
-            <li><a href="../Gestor_tipos/tipos.php">Gestor de Tipos</a></li>
-            <li><a href="../Gestor_categorias/categoria.php">Gestor de Categorías</a></li>
-            <li><a href="../Gestor_sub_categorias/sub_categoria.php">Gestor de Subcategorías</a></li>
-            <li><a href="../Gestor_control/Control.php ">Control</a></li>
-        </ul>
-    </nav>
-</div>
+        <li><a href="../Gestor_usuarios/usuario.php">Gestor de Usuarios</a></li>
+    <li><a href="../Gestor_peticiones/peticiones.php">Gestor de Peticiones</a></li>
+      <li class="dropdown">
+  <a href="#">Automatizaciones</a>
+  <ul class="dropdown-menu">
+    <li><a href="../Gestor_bots/bots.php">Gestor de Bots</a></li>
+    <li><a href="../Gestor_categorias/categoria.php">Categorías</a></li>
+    <li><a href="../Gestor_sub_categorias/sub_categoria.php">Subcategorías</a></li>
+    <li><a href="../Gestor_tipos/tipos.php">Gestor de Tipos</a></li>
+  </ul>
+</li>
+    <li><a href="../Gestor_calificaciones/calificacion.php">Gestor de Calificaciones</a></li>
+    <li><a href="../Gestor_roles/roles.php">Gestor de Roles</a></li>
+    <li><a href="../Gestor_control/Control.php">Control</a></li>
+    <li><a href="../menu/menuadmin.php">Home</a></li>
+  </ul>
+        </nav>
+    </div>
 <body>
 <div class="calificaciones-form">
     <h2>Registrar calificaciones</h2>
@@ -97,7 +104,7 @@ if (!isset($_SESSION["usuario"])) {
                 <th><?= isset($row['Calificacion']) ? $row['Calificacion'] : 'N/A'; ?></th>
                 <th><?= isset($row['Comentarios']) ? $row['Comentarios'] : 'N/A'; ?></th>
                 <th><a href="update_calificacion.php?IdCalificacion=<?= isset($row['IdCalificacion']) ? $row['IdCalificacion'] : ''; ?>" class="users-table--edit">Editar</a></th>
-                <th><a href="delete_calificacion.php?IdCalificacion=<?= isset($row['IdCalificacion']) ? $row['IdCalificacion'] : ''; ?>" class="users-table--delete">Eliminar</a></th>
+                <th><a href="delete_calificacion.php?IdCalificacion=<?= isset($row['IdCalificacion']) ? $row['IdCalificacion'] : ''; ?>" class="users-table--delete"><img src="../img/trash.png" alt=""></a></th>
             </tr>
         <?php
         endwhile;
