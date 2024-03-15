@@ -2,9 +2,9 @@
 include("../connection/connection.php");
 $con = connection();
 
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['idControl'])) {
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['IdControl'])) {
     // Get the ID of the record to be deleted
-    $idControl = mysqli_real_escape_string($con, $_GET['idControl']);
+    $idControl = mysqli_real_escape_string($con, $_GET['IdControl']);
 
     // Delete data from tblControl
     $sqlDelete = "DELETE FROM tblControl WHERE IdControl='$idControl'";

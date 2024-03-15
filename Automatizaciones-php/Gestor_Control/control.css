@@ -1,8 +1,9 @@
-/* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Times New Roman', serif;
     color: #011638;
-    background-color: rgb(90, 89, 89);
+    background-color: rgb(90, 89, 89); /* Color de fondo del body modificado */
+    background-image: url('https://i.pinimg.com/originals/55/01/60/5501609ee45d514d1f2c4a63502045e2.gif');
+    font-size: 20px;
 }
 
 /* Estilos del formulario de registro */
@@ -98,35 +99,28 @@ body {
 
 .controles-table--edit:hover,
 .controles-table--delete:hover {
-    background-color: #7da6c2;
+    background-color: #000000;
     color: white;
 }
-/* Estilos para el menú */
-.menu {
-    background-color: #333; /* Color de fondo del menú */
-    padding: 10px 0; /* Espaciado interno arriba y abajo */
-}
 
-.menu nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Centrar los elementos horizontalmente */
-}
-
-.menu nav ul li {
-    margin: 0 10px; /* Espaciado entre elementos del menú */
-}
-
-.menu nav ul li a {
+.generate-pdf-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00fff2;
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    color: #fff; /* Color del texto en estado normal */
-    padding: 10px 15px; /* Espaciado interno en cada enlace */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s; /* Transición para el color de fondo */
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    font-family: 'Times New Roman', serif;
+    font-size: 17px;
 }
 
-.menu nav ul li a:hover {
-    background-color: #555; /* Cambio de color de fondo al pasar el ratón */
+
+.generate-pdf-btn:hover {
+    background-color: #dadada;
+}
+
+img{
+    width: 20px;
+    height: 20px;
 }

@@ -1,31 +1,34 @@
 <?php
-include("../connection/connection.php");
-$con = connection();
-
-// Verificar si se recibió una solicitud POST
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    // Sanitizar los datos del formulario
-    $cedulaEmpleado = mysqli_real_escape_string($con, $_POST['cedulaEmpleado']);
-    $fecha = mysqli_real_escape_string($con, $_POST['fecha']);
-    $cedulaCliente = mysqli_real_escape_string($con, $_POST['cedulaCliente']);
-    $idPeticion = mysqli_real_escape_string($con, $_POST['idPeticion']);
-    $precioBot = mysqli_real_escape_string($con, $_POST['precioBot']);
-    $idBot = mysqli_real_escape_string($con, $_POST['IdBot']);
-
-    // Construir la consulta SQL
-    $sql = "UPDATE tblcontrol SET cedulaEmpleado='$cedulaEmpleado', fecha='$fecha', cedulaCliente='$cedulaCliente', idPeticion='$idPeticion', precioBot='$precioBot' WHERE IdBot='$idBot'";
 
 
-    // Ejecutar la consulta
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    
+    include("../connection/connection.php");
+    $con = connection();
+
+    
+    $IdControl = mysqli_real_escape_string($con, $_POST['IdControl']);
+    $CedulaEmpleado = mysqli_real_escape_string($con, $_POST['CedulaEmpleado']);
+    $Fecha = mysqli_real_escape_string($con, $_POST['Fecha']);
+    $CedulaCliente = mysqli_real_escape_string($con, $_POST ['CedulaCliente']);
+    $IdPeticion = mysqli_real_escape_string($con, $_POST['IdPeticion']);
+    $IdBot = mysqli_real_escape_string($con, $_POST['IdBot']);
+    $EstadoPedido =mysqli_real_escape_string ($con , $_POST['EstadoPedido']);
+    $PrecioBot = mysqli_real_escape_string($con, $_POST['PrecioBot']);
+
+   
+    $sql = "UPDATE tblcontrol SET IdControl='$IdControl', CedulaEmpleado='$CedulaEmpleado', Fecha='$Fecha', CedulaCliente='$CedulaCliente', IdPeticion='$IdPeticion', IdBot='$IdBot' , EstadoPedido='$EstadoPedido', PrecioBot = '$PrecioBot' WHERE IdControl='$IdControl'";
+
+    
     $query = mysqli_query($con, $sql);
 
-    // Verificar si la consulta se ejecutó correctamente
+   
     if ($query) {
-        header("Location: control.php");
+        header("Location: control.php"); 
         exit();
     } else {
-        echo "Error al actualizar la información: " . mysqli_error($con);
+        echo "Error al actualizar el usuario: " . mysqli_error($con);
     }
 
 } else {

@@ -11,9 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $IdPeticion = mysqli_real_escape_string($con, $_POST['IdPeticion']);
     $descripcion = mysqli_real_escape_string($con, $_POST['Descripcion']);
     $cedula = mysqli_real_escape_string($con, $_POST['CedulaCliente']);
+    $fecha = mysqli_real_escape_string ($con, $_POST['FechaPedido']);
+    $EstadoPedido = mysqli_real_escape_string ($con, $_POST['EstadoPedido']);
 
    
-    $sql = "UPDATE tblpeticiones SET CedulaCliente='$cedula', Descripcion='$descripcion' WHERE IdPeticion='$IdPeticion'";
+    $sql = "UPDATE tblpeticiones SET CedulaCliente='$cedula', Descripcion='$descripcion', FechaPedido='$fecha', EstadoPedido ='$EstadoPedido' WHERE IdPeticion='$IdPeticion'";
 
     
     $query = mysqli_query($con, $sql);

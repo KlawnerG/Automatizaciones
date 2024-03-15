@@ -2,12 +2,13 @@
 include("../connection/connection.php");
 $con = connection();
 
-$idControl = isset($_GET['idControl']) ? $_GET['idControl'] : '';
+$IdControl = isset($_GET['IdControl']) ? $_GET['IdControl'] : '';
 
-if (empty($idControl)) {
+if (empty($IdControl)) {
     echo "ID de control no proporcionado o es inválido.";
     exit();
 }
+
 
 $sqlEmpleados = "SELECT DISTINCT Cedula, Nombre FROM tblusuarios";
 $queryEmpleados = mysqli_query($con, $sqlEmpleados);
@@ -17,7 +18,7 @@ $sqlClientes = "SELECT DISTINCT Cedula, Nombre FROM tblusuarios";
 $queryClientes = mysqli_query($con, $sqlClientes);
 $clientes = mysqli_fetch_all($queryClientes, MYSQLI_ASSOC);
 
-$sqlPeticiones = "SELECT DISTINCT IdPeticion FROM tblpeticiones";
+$sqlPeticiones = "SELECT DISTINCT IdPeticion, EstadoPedido FROM tblpeticiones";
 $queryPeticiones = mysqli_query($con, $sqlPeticiones);
 $peticiones = mysqli_fetch_all($queryPeticiones, MYSQLI_ASSOC);
 
@@ -25,7 +26,12 @@ $sqlBots = "SELECT DISTINCT IdBot FROM tblautomatizaciones";
 $queryBots = mysqli_query($con, $sqlBots);
 $bots = mysqli_fetch_all($queryBots, MYSQLI_ASSOC);
 
-$sql = "SELECT * FROM tblcontrol WHERE IdControl='$idControl'";
+$sqlcontrol_Idbot = "SELECT DISTINCT IdBot FROM tblcontrol";
+$queryIdbots = mysqli_query($con, $sqlcontrol_Idbot);
+$Idbot = mysqli_fetch_all($queryIdbots, MYSQLI_ASSOC);
+
+
+$sql = "SELECT * FROM tblcontrol WHERE IdControl='$IdControl'";
 $query = mysqli_query($con, $sql);
 
 if (!$query || mysqli_num_rows($query) === 0) {
@@ -49,19 +55,28 @@ $row = mysqli_fetch_array($query);
 <body>
     <div class="control-form">
         <form action="edit_control.php" method="POST">
-            <input type="hidden" name="idControl" value="<?= $row['IdControl'] ?? '' ?>">
+            <input type="hidden" name="IdControl" value="<?= $row['IdControl'] ?? '' ?>">
 
-            <label for="cedulaEmpleado">Cédula del Empleado:</label>
-            <input type="text" name="cedulaEmpleado" placeholder="Cédula del Empleado" value="<?= $row['CedulaEmpleado'] ?? '' ?>"><br>
+            <label for="CedulaEmpleado">Cédula del Empleado:</label>
+            <input type="text" name="CedulaEmpleado" placeholder="Cédula del Empleado"
+                value="<?= $row['CedulaEmpleado'] ?? '' ?>"><br>
 
-            <label for="fecha">Fecha:</label>
-            <input type="date" name="fecha" placeholder="Fecha" value="<?= $row['Fecha'] ?? '' ?>"><br>
+            <label for="Fecha">Fecha:</label>
+            <input type="date" name="Fecha" placeholder="Fecha" value="<?= $row['Fecha'] ?? '' ?>"><br>
 
-            <label for="cedulaCliente">Cédula del Cliente:</label>
-            <input type="text" name="cedulaCliente" placeholder="Cédula del Cliente" value="<?= $row['CedulaCliente'] ?? '' ?>"><br>
+            <label for="CedulaCliente">Cédula del Cliente:</label>
+            <input type="text" name="CedulaCliente" placeholder="Cédula del Cliente"
+                value="<?= $row['CedulaCliente'] ?? '' ?>"><br>
 
-            <label for="idPeticion">ID de la Petición:</label>
-            <select name="idPeticion" placeholder="ID de la Petición">
+            <label for="EstadoPeticion">Estado de Peticion</label>
+            <select name="EstadoPedido" id="EstadoPedido">
+                <option value="Completado">Completado</option>
+                <option value="Cancelado">Cancelado</option>
+                <option value="En proceso">En proceso</option>
+            </select>
+
+            <label for="IdPeticion">ID de la Petición:</label>
+            <select name="IdPeticion" placeholder="ID de la Petición">
                 <?php
                 foreach ($peticiones as $peticionOption) {
                     $selected = ($peticionOption['IdPeticion'] == $row['IdPeticion']) ? 'selected' : '';
@@ -70,8 +85,8 @@ $row = mysqli_fetch_array($query);
                 ?>
             </select><br>
 
-            <label for="idBot">ID del Bot:</label>
-            <select name="idBot" placeholder="ID del Bot">
+            <label for="IdBot">ID del Bot:</label>
+            <select name="IdBot" placeholder="ID del Bot">
                 <?php
                 foreach ($bots as $botOption) {
                     $selected = ($botOption['IdBot'] == $row['IdBot']) ? 'selected' : '';
@@ -81,10 +96,16 @@ $row = mysqli_fetch_array($query);
             </select><br>
 
             <label for="precioBot">Precio del Bot:</label>
-            <input type="text" name="precioBot" placeholder="Precio del Bot" value="<?= $row['PrecioBot'] ?? '' ?>"><br>
-                <center>
-            <input type="submit" value="Actualizar">
-            <input type="reset" value="Cancelar">
+            <input type="text" name="PrecioBot" placeholder="Precio del Bot" value="<?= $row['PrecioBot'] ?? '' ?>"><br>
+            <center>
+                <input type="submit" value="Actualizar">
+                <button type="reset" value="cancelar" onclick='redireccion()'>Eliminar</button>
+
+                <script>
+                function redireccion() {
+                    window.location.href = "Control.php";
+                }
+                </script>
             </center>
         </form>
     </div>

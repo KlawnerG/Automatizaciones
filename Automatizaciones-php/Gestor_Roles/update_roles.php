@@ -41,7 +41,12 @@ if (!empty($Nombre)) {
             <input type="text" name="Descripcion" placeholder="Descripcion" value="<?= isset($row['Descripcion']) ? $row['Descripcion'] : '' ?>"><br>
             <center>
             <input type="submit" value="Actualizar">
-            <input type="reset" value="Cancelar">
+            <button type="reset" value="cancelar" onclick='redireccion()'>Eliminar</button> 
+
+            <script> function redireccion() {
+                window.location.href = "roles.php";
+            }
+            </script>
             </center>
         </form>
     </div>

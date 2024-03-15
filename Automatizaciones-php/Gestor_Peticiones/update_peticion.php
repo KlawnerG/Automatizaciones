@@ -53,8 +53,19 @@ if (!empty($idPeticion) || !empty($cedulaCliente)) {
             <label for="CedulaCliente">Cédula del Cliente:</label>
             <input type="text" name="CedulaCliente" placeholder="Cédula del Cliente" value="<?= isset($row['CedulaCliente']) ? htmlspecialchars($row['CedulaCliente']) : '' ?>"><br>
 
+            <label for="fecha">Fecha:</label>
+            <input type="date" name="FechaPedido" placeholder="fecha" value="<?= isset($row['FechaPedido']) ? $row['FechaPedido'] : '' ?>"><br>
+
+            <label for="EstadoPedido">Estado Pedido</label>
+            <input type="text" name="EstadoPedido" placeholder="Estado Pedido" value="<?= isset($row['EstadoPedido']) ? $row['EstadoPedido'] : '' ?>"><br>
+
             <input type="submit" value="Actualizar">
-            <input type="reset" value="Cancelar">
+            <button type="reset" value="cancelar" onclick='redireccion()'>Eliminar</button> 
+
+            <script> function redireccion() {
+                window.location.href = "peticiones.php";
+            }
+            </script>
         </form>
     </div>
 </body>

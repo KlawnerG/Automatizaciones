@@ -2,11 +2,12 @@
 include("../connection/connection.php");
 $con = connection();
 
-$cedulaEmpleado = ($_POST['cedulaEmpleado']);
-$cedulaCliente = ($_POST['cedulaCliente']);
-$idPeticion = ($_POST['idPeticion']);
-$precioBot = ($_POST['precioBot']);
+$cedulaEmpleado = ($_POST['CedulaEmpleado']);
+$cedulaCliente = ($_POST['CedulaCliente']);
+$idPeticion = ($_POST['IdPeticion']);
+$precioBot = ($_POST['PrecioBot']);
 $idBot = ($_POST['IdBot']);
+$EstadoPedido = ($_POST['EstadoPedido']);
 
 // Verificar si el cliente existe en la tabla de usuarios y tiene el rol "Cliente"
 $sql_verifys = "SELECT Cedula FROM tblusuarios WHERE Cedula = '$cedulaCliente' AND Rol = 'Cliente'";
@@ -20,7 +21,7 @@ if (mysqli_num_rows($result_verify) == 0) {
 }
 
 if (mysqli_num_rows($result_verifys) == 0) {
-    echo '<script>alert("El usuario no existe, verifica los datos."); window.location.href = "control.php";</script>';
+    echo '<script>alert("El Cliente no existe, verifica los datos."); window.location.href = "control.php";</script>';
     exit();
 }
 
@@ -31,7 +32,7 @@ if (empty($cedulaEmpleado) || empty($cedulaCliente) || empty($idPeticion) || emp
 
 }
 
-$sql = "INSERT INTO tblcontrol (cedulaEmpleado, fecha, cedulaCliente, idPeticion, precioBot, IdBot) VALUES ('$cedulaEmpleado',  NOW() , '$cedulaCliente','$idPeticion', '$precioBot', '$idBot')";
+$sql = "INSERT INTO tblcontrol (CedulaEmpleado, Fecha, CedulaCliente, IdPeticion, PrecioBot, IdBot, EstadoPedido) VALUES ('$cedulaEmpleado',  NOW() , '$cedulaCliente','$idPeticion', '$precioBot', '$idBot', '$EstadoPedido')";
 
 $query = mysqli_query($con, $sql);
 
