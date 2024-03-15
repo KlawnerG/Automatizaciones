@@ -62,10 +62,15 @@ if (!empty($cedula)) {
             </select><br>
 
             <label for="telefono">Teléfono:</label>
-            <input type="text" name="telefono" placeholder="telefono" value="<?= isset($row['Telefono']) ? $row['Telefono'] : '' ?>"><br>
+            <input type="int" name="telefono" placeholder="telefono" value="<?= isset($row['Telefono']) ? $row['Telefono'] : '' ?>"><br>
 
             <input type="submit" value="Actualizar">
-            <input type="reset" value="Cancelar">
+            <button type="reset" value="cancelar" onclick='redireccion()'>Eliminar</button> 
+
+            <script> function redireccion() {
+                window.location.href = "usuario.php";
+            }
+            </script>
         </form>
     </div>
 </body>
