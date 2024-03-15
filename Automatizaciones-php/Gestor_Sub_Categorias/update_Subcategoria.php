@@ -53,7 +53,12 @@ if (!empty($nombre) || !empty($descripcion)) {
             <input type="text" name="Descripcion" placeholder="Descripción" value="<?= isset($row['Descripcion']) ? htmlspecialchars($row['Descripcion']) : '' ?>"><br>
 
             <input type="submit" value="Actualizar">
-            <input type="reset" value="Cancelar">
+            <button type="reset" value="cancelar" onclick='redireccion()'>Eliminar</button> 
+
+            <script> function redireccion() {
+                window.location.href = "Sub_categoria.php";
+            }
+            </script>
         </form>
     </div>
 </body>
