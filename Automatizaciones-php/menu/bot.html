@@ -2,141 +2,266 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Chatbots</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bots Avanzados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-     body {
-    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-family: 'Numans', sans-serif;
-    margin: 0;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #ffffff;
+        }
+        .logo img {
+            position: relative;
+            max-width: 60px;
+            top: 10px;
+            right:645px;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: white;
-}
 
-th, td {
-    border: 1px solid white;
-    padding: 10px;
-    text-align: center;
-}
+        /* Encabezado */
+        header {
+            background-color: #1a1a1a;
+            padding: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-th {
-    background-color: #ffd34f;
-    color: black;
-}
+        header h1 {
+            font-size: 24px;
+            margin: 10px;
+        }
 
-a {
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    border: 2px solid #ffd34f;
-    color: #ffd34f;
-}
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            
+            position: relative;
+            right: 20px;
+        }
 
-a:hover {
-    background-color: #ffd34f;
-    color: black;
-}
+        header nav ul li {
+            margin-left: 20px;
+        }
 
-.users-table--edit {
-    background-color: #3498db;
-    color: white;
-}
+        header nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-.users-table--edit:hover {
-    background-color: #2980b9;
-}
+        header nav ul li a:hover {
+    color: #064f17;
+  }
 
-.users-table--delete {
-    background-color: #e74c3c;
-    color: white;
-}
+        /* Sección principal */
+        main {
+            background-image: url('https://i.pinimg.com/originals/55/01/60/5501609ee45d514d1f2c4a63502045e2.gif');
+            padding: 150px;
+            text-align: center;
+        }
 
-.users-table--delete:hover {
-    background-color: #c0392b;
-}
-    </style>
+        main h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        main h3 {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Fondo animado */
+        .animated-background {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .animated-background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0d0d0d, #1a1a1a, #0d0d0d);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Estilos para las tarjetas */
+        .icon-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .icon-cards__item {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .icon-cards__item:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-cards__item img {
+            max-width: 20%;
+            height: auto;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+
+        .card-content p {
+            font-size: 14px;
+            color: #000000;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-content button {
+            padding: 12px 24px;
+            margin: 8px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content button:hover {
+            background-color: #064f17;
+            transform: translateY(-2px);
+        }
+
+        .card-content button a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        </style>
+     <script>
+        function solicitarCedula(event, url) {
+            event.preventDefault(); // Evitar que se siga el enlace
+
+            var cedula = prompt("Ingrese su número de cédula:  recuerde si no esta registrado el sistema lo redigira al registro");
+            if (cedula !== null) {
+                // Enviar la cédula al servidor para verificar
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "verificar_cedula.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var respuesta = xhr.responseText;
+                        if (respuesta === "registrado") {
+                            // El usuario está registrado, redirigir a la página de personalización
+                            window.location.href = url;
+                        } else {
+                            // El usuario no está registrado, redirigir a registro.php
+                            window.location.href = "registro.php";
+                        }
+                    }
+                };
+                xhr.send("cedula=" + cedula);
+            }
+        }
+    </script>
 </head>
 <body>
-    <h1>Lista de Chatbots</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID del Bot</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Tipo</th>
-                <th>Categoría</th>
-                <th>Subcategoría</th>
-                <th>Probar</th>
-                <th>Personalizar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            echo '<tr>';
-            echo '<td>1</td>';
-            echo '<td>Chatbot de Comida Rápida</td>';
-            echo '<td>Ofrece menús y toma pedidos en línea.</td>';
-            echo '<td>Restaurante</td>';
-            echo '<td>Comida Rápida</td>';
-            echo '<td>-</td>';
-            echo '<td><a href="probar.php?bot_id=1">Probar</a></td>';
-            echo '<td><a href="chatbot.php?bot_id=1">Personalizar</a></td>';
-            echo '</tr>';
+    <header>
+        <h1>ZenithTech</h1>
+        <nav>
+            <ul>
+                <li><a href="bot.html">Conoce Nuestros Bots</a></li>
+                <li><a href="peticiones.php">Realiza Peticiones</a></li>
+                <li><a href="calificacion.php">Haz una Calificación</a></li>
+                <li><a href="index.html">Menú</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            echo '<tr>';
-            echo '<td>2</td>';
-            echo '<td>Chatbot de Agendamientos de Citas (Odontología)</td>';
-            echo '<td>Permite a los usuarios programar citas con un dentista.</td>';
-            echo '<td>Agendamiento</td>';
-            echo '<td>Salud</td>';
-            echo '<td>Odontología</td>';
-            echo '<td><a href="probar.php?bot_id=2">Probar</a></td>';
-            echo '<td><a href="personalizar.php?bot_id=2">Personalizar</a></td>';
-            echo '</tr>';
+    <main>
+        <h1>Bots</h1>
+        <h3>Aquí puedes probar y personalizar todos nuestros bots</h3>
 
-            echo '<tr>';
-            echo '<td>3</td>';
-            echo '<td>Chatbot de Citas Médicas</td>';
-            echo '<td>Facilita la programación de citas médicas en línea.</td>';
-            echo '<td>Agendamiento</td>';
-            echo '<td>Salud</td>';
-            echo '<td>Médico</td>';
-            echo '<td><a href="probar.php?bot_id=3">Probar</a></td>';
-            echo '<td><a href="personalizar.php?bot_id=3">Personalizar</a></td>';
-            echo '</tr>';
-
-            echo '<tr>';
-            echo '<td>4</td>';
-            echo '<td>Chatbot de Asistente de Compras en Línea</td>';
-            echo '<td>Transforma la experiencia de compra en línea con recomendaciones y compras directas.</td>';
-            echo '<td>Asistente de Compras</td>';
-            echo '<td>Comercio Electrónico</td>';
-            echo '<td>-</td>';
-            echo '<td><a href="probar.php?bot_id=4">Probar</a></td>';
-            echo '<td><a href="personalizar.php?bot_id=4">Personalizar</a></td>';
-            echo '</tr>';
-
-            echo '<tr>';
-            echo '<td>5</td>';
-            echo '<td>Chatbot de Soporte Técnico</td>';
-            echo '<td>Proporciona asistencia técnica instantánea y soluciones paso a paso.</td>';
-            echo '<td>Soporte Técnico</td>';
-            echo '<td>Tecnología</td>';
-            echo '<td>-</td>';
-            echo '<td><a href="probar.php?bot_id=5">Probar</a></td>';
-            echo '<td><a href="personalizar.php?bot_id=1">Personalizar</a></td>';
-            echo '</tr>';
-            ?>
-        </tbody>
-    </table>
+        <section>
+            <div class="icon-cards">
+                <div class="icon-cards__item">
+                    <img src="https://app-upload-assets.cdn.botstar.com/d72e0570-bfdb-11e7-affb-8b31a0f64612/image/1582113400524/mobilescreen1.png" alt="ChatRestaurante">
+                    <div class="card-content">
+                        <h2>Chatbot para servicio de restaurante</h2>
+                        <p>Automatiza el proceso de ordenar en el restaurante con una interfaz sencilla y funcional.</p>
+                        <button><a href="../menu/botrestaurante/inicio.html">Probar</a></button>
+                        <button><a href="#" onclick="solicitarCedula(event, '../menu/personalizarRestaurante/personalizar.html')">personalizar</a></button>
+                    </div>
+                </div>
+                <div class="icon-cards__item">
+                    <img src="https://app-upload-assets.cdn.botstar.com/d72e0570-bfdb-11e7-affb-8b31a0f64612/image/1582113400524/mobilescreen1.png" alt="ChatRestaurante">
+                    <div class="card-content">
+                        <h2>Chatbot para servicio de restaurante</h2>
+                        <p>Automatiza el proceso de ordenar en el restaurante con una interfaz sencilla y funcional.</p>
+                        <button><a href="/Automatizaciones-php/menu/botrestaurante/inicio.html">probar</a></button>
+                        <button><a href="#" onclick="solicitarCedula(event, '/Automatizaciones-php/menu/botrestaurante/index.html')">personalizar</a></button>
+                    </div>
+                </div>
+                <div class="icon-cards__item">
+                    <img src="https://app-upload-assets.cdn.botstar.com/d72e0570-bfdb-11e7-affb-8b31a0f64612/image/1582113400524/mobilescreen1.png" alt="ChatDomicilio">
+                    <div class="card-content">
+                        <h2>Chatbot para servicio de domicilio</h2>
+                        <p>Irresistible perro caliente con salchicha, pan y aderezos.</p>
+                        <button><a href="../menu/botdomicilio/inicio.html">probar</a></button>
+                        <button><a href="#" onclick="solicitarCedula(event, '/Automatizaciones-php/menu/personalizarRestaurante/personalizar.html')">personalizar</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

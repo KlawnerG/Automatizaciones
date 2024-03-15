@@ -10,7 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedulaCliente = $_POST["cedulaCliente"];
     $idBot = $_POST["idBot"];
 
-    // Puedes agregar más validaciones y sanitizaciones aquí según tus necesidades
+    // Verificar si el cliente existe en la tabla de usuarios y tiene el rol "Cliente"
+    $sql_verifys = "SELECT Cedula FROM tblusuarios WHERE Cedula = '$cedulaCliente' AND Rol = 'Cliente'";
+    $result_verifys = mysqli_query($con, $sql_verifys);
+    $sql_verify = "SELECT Cedula FROM tblusuarios WHERE Cedula = '$cedulaEmpleado' AND Rol != 'Cliente'";
+    $result_verify = mysqli_query($con, $sql_verify);
+
+
+
+    if (mysqli_num_rows($result_verifys) == 0) {
+        echo '<script>alert("El Cliente no existe en la base de datos, verifica los datos."); window.location.href = "Calificacion.php";</script>';
+        exit();
+    }
 
     // Inserta los datos en la base de datos
     $sql = "INSERT INTO tblCalificacionBot (CedulaCliente, idBot, fecha, Calificacion, Comentarios) VALUES ('$cedulaCliente', '$idBot', NOW(), '$calificacion', '$comentarios')";
@@ -43,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($con->query($sql) === TRUE) {
         // Muestra la alerta y redirecciona a menu.html
-        echo '<script>alert("Calificación registrada con éxito dale aceptar para ir al menu"); window.location.href = "menu.html";</script>';
+        echo '<script>alert("Calificación registrada con éxito dale aceptar para ir al menu"); window.location.href = "index.html";</script>';
     } else {
         echo "Error al enviar la calificación: " . $con->error;
         

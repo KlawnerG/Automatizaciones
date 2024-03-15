@@ -6,8 +6,8 @@
 <title>Formulario de Inicio de Sesión</title>
 <style>
     body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        font-family: 'Poppins', sans-serif;
+        background-image: url('https://i.pinimg.com/originals/55/01/60/5501609ee45d514d1f2c4a63502045e2.gif');
         margin: 0;
         padding: 0;
         display: flex;
@@ -32,7 +32,7 @@
     }
     input[type="submit"] {
         width: 100%;
-        background-color: #4caf50;
+        background-color: #000000;
         color: #fff;
         padding: 10px;
         border: none;
@@ -41,7 +41,7 @@
         font-size: 16px;
     }
     input[type="submit"]:hover {
-        background-color: #45a049;
+        background-color: #727272;
     }
 </style>
 
@@ -54,7 +54,11 @@
 </head>
 
 <body>
+    <a href="index.html" class="cta">Volver</a>">
+    
     <form action="autenticacion.php" method="post" autocomplete="off">
+       
+       <center> <h1>ZenithTech</h1></center>
         <h2>Iniciar Sesión</h2>
         <label for="username">Usuario:</label>
         <input type="text" id="login" name="login" autocomplete="off" required>

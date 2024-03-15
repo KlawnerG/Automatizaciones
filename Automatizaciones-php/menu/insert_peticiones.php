@@ -24,7 +24,7 @@ $sql = "INSERT INTO tblPeticiones (Descripcion, CedulaCliente) VALUES ('$descrip
 $query = mysqli_query($con, $sql);
 
 if ($query) {
-    echo '<script>alert("Petición registrada con éxito. Haz clic en aceptar para ir al menú."); window.location.href = "menu.html";</script>';
+    echo '<script>alert("Petición registrada con éxito. Haz clic en aceptar para ir al menú."); window.location.href = "index.html";</script>';
 } else {
     echo "Error al insertar la petición.";
 }

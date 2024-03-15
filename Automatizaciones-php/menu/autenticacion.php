@@ -1,6 +1,6 @@
 <?php
 try {
-    $base = new PDO("mysql:host=localhost;dbname=automatizaciones", "root", "");
+    $base = new PDO("mysql:host=localhost; dbname=automatizaciones", "root", "");
     $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT * FROM tblusuarios WHERE Cedula = :login AND PASSWORD = :password";
@@ -18,7 +18,7 @@ try {
         $rol = $usuario['Rol'];
 
         if ($rol == "Cliente") {
-            header("location: menu.html");
+            header("location: index.html");
             exit();
         } else {
             session_start();
